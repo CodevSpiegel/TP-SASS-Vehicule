@@ -1,6 +1,0 @@
-/* Convert PX to REM */
-@function toRem($taille-px) {
-    $taille-rem: $taille-px / 16;
-
-    @return $taille-rem+rem;
-}

@@ -1,37 +1,69 @@
 @use "../functions/functions" as func;
+@use "../bases/fonts" as font;
+@use "../variables/variables" as var;
 
 
-@mixin smaller-font-size {
-    font-family: Exo;
-    font-size: 13px;
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+
+/* D - h2-font-size */
+@mixin h2-font-size {
+    font-family: font.$base-font;
+    font-size: func.toRem(24);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 33.6px */
+}
+
+/* D - h3-font-size */
+@mixin h3-font-size {
+    font-family: font.$base-font;
+    font-size: func.toRem(20);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 28px */
+}
+
+@mixin big-button {
+    font-family: font.$base-font;
+    font-size: func.toRem(16);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    border-radius: func.toRem(4);
+    color: var.$title-color;
+    background: var.$first-color;
+    padding: func.toRem(14) func.toRem(32);
+    text-decoration: none;
+}
+
+@mixin space-button {
+    display: flex;
+    border-radius: 20px 0;
+    background: var.$first-color;
+    padding: func.toRem(12) func.toRem(16);
+}
+
+/* D - normal-font-size */
+@mixin normal-font-size {
+    font-family: font.$base-font;
+    font-size: func.toRem(16);
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
 }
 
-@mixin center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* D - smaller-font-size */
+@mixin smaller-font-size {
+    font-family: font.$base-font;
+    font-size: func.toRem(13);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
 }
-
-@mixin between-y-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-@mixin column-center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-@mixin svg-txt {
-    @include center;
-    gap: func.toRem(4);
-}
-
-
-
-
